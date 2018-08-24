@@ -5,3 +5,5 @@
 https://devcenter.heroku.com/articles/authentication
 
 https://mtumilowicz-hello.herokuapp.com/
+
+actuator
