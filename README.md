@@ -50,7 +50,7 @@ Configuration of CI / CD (travis, heroku).
             secure: $HEROKU_KEY_API
           app: mtumilowicz-hello
         ```        
-        
+
 * HEROKU_KEY_API
     1. download and install `heroku-cli`: https://devcenter.heroku.com/articles/heroku-cli
     1. log in:
@@ -68,9 +68,45 @@ Configuration of CI / CD (travis, heroku).
         ```
     1. set HEROKU_KEY_API in Environment Variables of a project on travis
 
+* additional configuration:
+    * gradle junit5
+        ```
+        testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
+        testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.2.0')
+        
+        test {
+            useJUnitPlatform()
+        }    
+        ```
+    * jacoco (code coverage)
+        ```
+        apply plugin: "jacoco"
+        ```
+    
+    * sonar (static code analysis)
+        * gradle
+            ```
+            plugins {
+                id "org.sonarqube" version "2.6.2"
+            }
+            ```
+        * .travis.yml
+            ```
+            addons:
+              sonarcloud:
+                organization: "mtumilowicz-github"
+                token:
+                  secure: $SONAR_TOKEN
+              
+            script:
+              - ./gradlew sonarqube
+            ```
+        
+    
 # project description
 * CI using travis
 * CD using travis & heroku
+* Code analysis: sonar + jacoco
 * prints hello on default URL:
     https://mtumilowicz-hello.herokuapp.com/
 * use of spring boot actuator:
