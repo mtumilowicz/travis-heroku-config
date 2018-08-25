@@ -1,5 +1,6 @@
 package com.example.travisherokuconfig;
 
+import org.springframework.boot.actuate.health.Health;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,7 @@ public class HelloController {
     }
     
     @GetMapping("health")
-    public boolean health() { 
-        return true;
+    public Health health() { 
+        return Health.up().build();
     }
 }

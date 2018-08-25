@@ -16,7 +16,7 @@ class HelloControllerHealthCheckTest extends BaseIT {
         assertThat(restTemplate
                         .getForEntity(
                                 createURLWithPort("/health"),
-                                Boolean.class)
+                                null)
                         .getStatusCode(),
                 is(HttpStatus.OK));
     }
