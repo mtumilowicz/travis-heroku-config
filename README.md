@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/mtumilowicz/travis-heroku-config.svg?branch=master)](https://travis-ci.com/mtumilowicz/travis-heroku-config)
-
+[![Code coverage](https://sonarcloud.io/api/project_badges/measure?project=com.example%3Atravis-heroku-config&metric=coverage)](https://sonarcloud.io/api/project_badges/measure?project=com.example%3Atravis-heroku-config&metric=coverage)
 # travis-heroku-config
 Configuration of CI / CD (travis, heroku).
 
