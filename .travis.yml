@@ -13,3 +13,9 @@ deploy:
   api_key:
     secure: $HEROKU_KEY_API
   app: mtumilowicz-hello
+  
+addons:
+  sonarcloud:
+    organization: "mtumilowicz-github"
+    token:
+      secure: $SONAR_TOKEN
