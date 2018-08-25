@@ -1,6 +1,7 @@
 package com.example.travisherokuconfig;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.actuate.health.Health;
 import org.springframework.http.HttpStatus;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -16,7 +17,7 @@ class HelloControllerHealthCheckTest extends BaseIT {
         assertThat(restTemplate
                         .getForEntity(
                                 createURLWithPort("/health"),
-                                null)
+                                Health.class)
                         .getStatusCode(),
                 is(HttpStatus.OK));
     }
